@@ -1,0 +1,174 @@
+* {
+    padding: 0;
+    border: none;
+    border-radius: 3px;
+    min-height: 0;
+    margin: 0.2em 0.3em 0.2em 0.3em;
+    font-family: "CaskaydiaCove NF Semibold", "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+/* ------------------------------
+   Waybar container
+------------------------------ */
+#waybar {
+    margin: 0px 0px;
+    padding: 4px 8px;
+    /* background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 60%); */
+    /* border: 1px solid rgba(255,255,255,0.14); */
+    border: none;
+    border-radius: 10px;
+    /* box-shadow:
+        0 6px 20px rgba(8,10,15,0.30),
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        inset 0 -6px 10px rgba(0,0,0,0.08); */
+    -webkit-backdrop-filter: none;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+/* Make hidden state slightly transparent */
+window#waybar.hidden { opacity: 0.5; }
+
+
+/* ------------------------------
+   Individual widgets (base)
+------------------------------ */
+.widget, .module {
+    border-radius: 10px;
+    padding: 4px 8px;
+    /* background:  rgba(255,255,255,0.08);
+    background-image: linear-gradient(180deg,  rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.12),
+        inset 0 1px 0 rgba(255,255,255,0.03); */
+    font-weight: 700;
+    font-size: 12px;
+    min-height: calc(20px - 8px);
+}
+
+/* Reduce default spacing for specific items */
+#workspaces button,
+#window,
+#clock,
+#custom-screenshot_t,
+#custom-storage,
+#custom-power,
+#cpu,
+#battery
+#tray {
+    padding: 3px 5px;
+    margin: 3px 5px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ------------------------------
+   Workspaces
+------------------------------ */
+#workspaces {
+    padding: 3px 6px;
+    border-radius: 10px;
+    /* background: linear-gradient(180deg, rgba(117, 103, 103, 0.03), rgba(0,0,0,0.03)); */
+}
+
+#workspaces button {
+    padding: 3px 6px;
+    margin: 3px 5px;
+    border-radius: 8px;
+    /* color: rgba(255,255,255,0.85); */
+    color: #e7e0e0;
+    background: transparent;
+    transition: background .18s ease, color .18s ease;
+    font-size: 12px;
+    min-width: 18px;
+}
+
+#workspaces button.active {
+    color: #312f2f;
+    background: linear-gradient(180deg, rgba(123,211,137,0.14), rgba(123,211,137,1));
+    box-shadow: 0 2px 8px rgba(79, 86, 80, 0.06);
+    border: 1px solid rgba(123,211,137,0.12);
+}
+
+#workspaces button:hover { background: rgb(57, 48, 48); }
+
+/* ------------------------------
+   Window title module
+   ------------------------------ */
+#window {
+    margin: 2px;
+    padding: 3px 8px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 800;
+    opacity: 0.2;
+}
+
+/* ------------------------------
+   Clock and date
+   ------------------------------ */
+#clock {
+    padding: 2px 8px;
+    color: #9599a0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));
+}
+
+/* ------------------------------
+   Tray & icons
+   ------------------------------ */
+#tray {
+    padding: 2px 6px;
+}
+
+/* icon sizing */
+#tray img, #tray i, .icon {
+    font-size: 14px;
+}
+
+/* ------------------------------
+   Battery / CPU / Memory / Network / Backlight
+------------------------------ */
+#battery { color: #acbbd7; }
+#battery.charging { color: #509444; }
+#cpu { color: #ffb86b; }
+#memory { color: #ffd580; }
+#network { color: #372573; }
+
+/* Critical / alert states */
+#battery.critical, #network.disconnected {
+    color: #ff6b6b;
+    animation: pulse 1.2s infinite alternate;
+}
+@keyframes pulse { from {opacity:1} to {opacity:0.6} }
+
+/* ------------------------------
+   Custom small controls (screenshot, power, keyboard)
+------------------------------*/
+#custom-screenshot_t, #custom-power, #custom-storage, #custom-keyboard {
+    padding: 3px 6px;
+    border-radius: 9px;
+}
+
+/* ------------------------------
+   Minimalist tooltip styles (if used)
+   ------------------------------ */
+.tooltip {
+    background: rgba(123, 127, 133, 0.9);
+    color: #706060;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    box-shadow: 0 6px 18px rgba(119, 112, 112, 0.35);
+}
+
+/* ------------------------------
+   Utility: small & compact mode
+   ------------------------------ */
+.compact .widget { padding: 2px 6px; font-size: 11px; }
